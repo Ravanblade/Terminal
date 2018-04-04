@@ -1,0 +1,107 @@
+unit potwierdzenie;
+
+{$mode objfpc}{$H+}
+
+interface
+
+uses
+  Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, ExtCtrls,
+  StdCtrls;
+
+type
+
+  { TForm3 }
+
+  TForm3 = class(TForm)
+    Button1: TButton;
+    Button2: TButton;
+    Edit10: TEdit;
+    Edit2: TEdit;
+    Edit3: TEdit;
+    Edit4: TEdit;
+    Edit5: TEdit;
+    Edit6: TEdit;
+    Edit7: TEdit;
+    Edit8: TEdit;
+    Edit9: TEdit;
+    Image1: TImage;
+    Label1: TLabel;
+    Label10: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    Label8: TLabel;
+    Label9: TLabel;
+    Panel1: TPanel;
+    procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure Label8Click(Sender: TObject);
+  private
+    { private declarations }
+  public
+    { public declarations }
+  end;
+
+var
+  Form3: TForm3;
+
+implementation
+uses bilety;
+
+{$R *.lfm}
+
+{ TForm3 }
+
+procedure TForm3.Button2Click(Sender: TObject);
+begin
+  Form3.Hide;
+  Form2.Show;
+end;
+
+procedure TForm3.FormShow(Sender: TObject);
+var
+  i, ilosc_pas : integer;
+  waluta : AnsiString;
+begin
+  Edit2.Caption := Form2.miasto;
+  Edit3.Caption := Form2.term;
+  Edit4.Caption := Form2.data;
+  Edit5.Caption := Form2.czas_l;
+  Edit6.Caption := Form2.nr_rejsu;
+  Edit8.Caption := Form2.uwagi;
+  Edit9.Caption := '';
+  ilosc_pas := 0;
+
+  for i := 0 to Form2.CheckListBox1.Count -1 do
+  begin
+
+    if Form2.CheckListBox1.Checked[i] = true then
+    begin
+       Edit9.Caption := Edit9.Caption + Form2.CheckListBox1.Items[i] + ' ';
+       ilosc_pas += 1;
+    end;
+
+  end;
+
+  Edit10.Caption := IntToStr(ilosc_pas);
+  waluta := Copy(Form2.cena_b,Length(Form2.cena_b)-2,3);
+  Edit7.Caption := FloatToStr(StrToFloat(Copy(Form2.cena_b,0,Length(Form2.cena_b)-3)) * ilosc_pas) + ' ' + waluta;
+end;
+
+procedure TForm3.Label8Click(Sender: TObject);
+begin
+
+end;
+
+procedure TForm3.Button1Click(Sender: TObject);
+begin
+  Form2.zapiszMiejsce();
+  Form3.Hide;
+end;
+
+end.
+

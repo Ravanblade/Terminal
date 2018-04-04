@@ -1,0 +1,141 @@
+object Form1: TForm1
+  Left = 655
+  Height = 399
+  Top = 389
+  Width = 803
+  Caption = 'Terminal'
+  ClientHeight = 399
+  ClientWidth = 803
+  Constraints.MaxWidth = 803
+  Constraints.MinHeight = 315
+  Constraints.MinWidth = 803
+  OnCreate = FormCreate
+  Position = poScreenCenter
+  LCLVersion = '1.4.4.0'
+  object ListView1: TListView
+    Left = 0
+    Height = 310
+    Top = 55
+    Width = 402
+    Align = alLeft
+    Anchors = [akRight]
+    AutoWidthLastColumn = True
+    Columns = <    
+      item
+        Caption = 'Z'
+        Width = 100
+      end    
+      item
+        Caption = 'Numer rejsu'
+        Width = 80
+      end    
+      item
+        Caption = 'Data'
+        Width = 60
+      end    
+      item
+        Caption = 'Wyjscie'
+        Width = 60
+      end    
+      item
+        Caption = 'Uwagi'
+        Width = 98
+      end>
+    ReadOnly = True
+    RowSelect = True
+    TabOrder = 0
+    ViewStyle = vsReport
+  end
+  object ListView2: TListView
+    Left = 401
+    Height = 310
+    Top = 55
+    Width = 402
+    Align = alRight
+    Anchors = [akRight]
+    AutoWidthLastColumn = True
+    Columns = <    
+      item
+        Caption = 'Do'
+        Width = 100
+      end    
+      item
+        Caption = 'Numer rejsu'
+        Width = 80
+      end    
+      item
+        Caption = 'Data'
+        Width = 110
+      end    
+      item
+        Caption = 'Wyjscie'
+        Width = 55
+      end    
+      item
+        Caption = 'Uwagi'
+        Width = 53
+      end>
+    ReadOnly = True
+    RowSelect = True
+    TabOrder = 1
+    ViewStyle = vsReport
+  end
+  object Panel1: TPanel
+    Left = 0
+    Height = 55
+    Top = 0
+    Width = 803
+    Align = alTop
+    ClientHeight = 55
+    ClientWidth = 803
+    TabOrder = 2
+    object Label1: TLabel
+      Left = 121
+      Height = 53
+      Top = 1
+      Width = 8548
+      Align = alLeft
+      Anchors = [akTop, akRight]
+      BorderSpacing.Left = 120
+      Caption = 'Przyloty'
+      Font.Height = 50
+      ParentColor = False
+      ParentFont = False
+      OnClick = Label1Click
+    end
+    object Label2: TLabel
+      Left = 540
+      Height = 53
+      Top = 1
+      Width = 112
+      Align = alRight
+      Alignment = taRightJustify
+      Anchors = [akRight]
+      BorderSpacing.Right = 300
+      Caption = 'Odloty'
+      Font.Height = 50
+      ParentColor = False
+      ParentFont = False
+    end
+  end
+  object Panel2: TPanel
+    Left = 0
+    Height = 34
+    Top = 365
+    Width = 803
+    Align = alBottom
+    ClientHeight = 34
+    ClientWidth = 803
+    TabOrder = 3
+    object Button1: TButton
+      Left = 1
+      Height = 32
+      Top = 1
+      Width = 95
+      Align = alLeft
+      Caption = 'Kup bilet'
+      OnClick = Button1Click
+      TabOrder = 0
+    end
+  end
+end
